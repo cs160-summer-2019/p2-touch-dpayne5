@@ -85,6 +85,70 @@
 	</div>
 	<script>
 	  // your solution here
+    /*
+    Hammer.get('pinch').set({ enable: true });
+    Hammer.get('rotate').set({ enable: true }); */
+    
+    
+    
+    
+    
+    //tap
+    var element = document.getElementById('tap-box');
+    Hammer(element).on("tap", function(event) {
+      element.style.backgroundColor = 'orange';
+    });
+    
+    //swipe
+    var element2 = document.getElementById('swipe-box');
+    Hammer(element2).on("swipe", function(event) {
+      element2.style.backgroundColor = 'yellow';
+      
+    });
+    
+    //press
+    var element3 = document.getElementById('press-box');
+    Hammer(element3).on("press", function(event) {
+      element3.style.backgroundColor = 'green';
+      
+    });
+    
+    
+    //pan
+    var myElement = document.getElementById('pan-box');
+    var mc = new Hammer(myElement);
+    mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+    mc.on("panleft panright panup pandown", function(ev) {
+      myElement.style.backgroundColor = 'red';
+    });
+    
+    
+    
+    
+    //rotate
+    var rotateElement  = document.getElementById('rotate-box');
+    var rmc = new Hammer.Manager(rotateElement);
+    var rotate = new Hammer.Rotate();
+    rmc.add([rotate]);
+    
+    rmc.on('rotate', function(event) {
+      rotateElement.style.backgroundColor = 'magenta';
+    });
+    
+    
+    //pinch
+    var pinchElement = document.getElementById('pinch-box');
+    var pmc = new Hammer.Manager(pinchElement);
+    var pinch = new Hammer.Pinch();
+    pmc.add([pinch]);
+    
+    pmc.on('pinch', function(event){
+      pinchElement.style.backgroundColor = 'pink';
+    });
+    
+    
+    
+    
   </script>
 </body>
 </html>
